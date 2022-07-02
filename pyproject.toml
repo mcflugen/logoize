@@ -1,0 +1,114 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logoize"
+description = "Make CSDMS text logos"
+authors = [
+  {email = "mcflugen@gmail.com"},
+  {name = "Eric Hutton"}
+]
+maintainers = [
+  {email = "mcflugen@gmail.com"},
+  {name = "Eric Hutton"}
+]
+keywords = ["csdms", "logo"]
+license = {file = "LICENSE.rst"}
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.8"
+dependencies = [
+  "rich-click",
+  "matplotlib>=3.2",
+]
+dynamic = ["readme", "version"]
+
+
+[project.urls]
+repository="https://github.com/mcflugen/logoize"
+documentation = "https://github.com/mcflugen/logize/blob/main/README.rst"
+changelog = "https://github.com/mcflugen/logize/blob/main/CHANGES.rst"
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "coverage",
+  "flake8",
+  "isort",
+  "nox",
+  "pre-commit",
+  "pytest",
+  "pytest-cov",
+  "pytest-datadir",
+  "pytest-runner",
+  "towncrier",
+  "zestreleaser.towncrier",
+]
+doc = [
+  "sphinx",
+  "pygments>=2.4",
+  "sphinx-inline-tabs",
+  "furo",
+]
+
+
+[project.scripts]
+logoize = "logoize.cli:logoize"
+
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst", "AUTHORS.rst", "CHANGES.rst"]}
+version = {attr = "logoize._version.__version__"}
+
+
+[tool.setuptools.packages.find]
+# namespaces = true
+where = ["src"]
+
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+logoize = [
+  "fonts/Quicksand/*.ttf",
+  "fonts/Quicksand/static/*.ttf",
+]
+# "logoize.fonts" = ["*"]
+
+
+[tool.towncrier]
+directory = "news"
+package = "logoize"
+filename = "CHANGES.rst"
+single_file = true
+underlines = "-`^"
+issue_format = "`#{issue} <https://github.com/mcflugen/logoize/issues/{issue}>`_"
+title_format = "{version} ({project_date})"
+
+[[tool.towncrier.type]]
+directory = "feature"
+name = "New Features"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "bugfix"
+name = "Bug Fixes"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "docs"
+name = "Documentation Enhancements"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "misc"
+name = "Other Changes and Additions"
+showcontent = true
