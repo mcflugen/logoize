@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/mcflugen/logoize/develop/docs/_static/logoize-logo-light.png
+.. image:: https://raw.githubusercontent.com/mcflugen/logoize/main/docs/_static/logoize-logo-light.svg
   :alt: Logoize
   :align: center
   
@@ -35,7 +35,7 @@ use with a dark theme,
 
 .. code:: bash
 
-    $ logoize "logoize" -o logoize-logo.svg --theme=dark
+    $ logoize "logoize" -o logoize-logo-dark.svg --theme=dark
 
 The output image format will be chosen based on the output file extension. If,
 however, you would like to override that behavior you can use the ``--format``
