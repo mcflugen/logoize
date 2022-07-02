@@ -17,5 +17,14 @@ def logoize(words, dest, light=True, format="svg"):
     color = (0.0, 0.0, 0.0) if light else (1.0, 1.0, 1.0)
     load_logo_font()
 
-    plt.figtext(0.5, 0.5, words, size=500, ha="center", va="center", fontweight="bold", color=color)
+    plt.figtext(
+        0.5,
+        0.5,
+        words,
+        size=500,
+        ha="center",
+        va="center",
+        fontweight="bold",
+        color=color,
+    )
     plt.savefig(dest, bbox_inches="tight", transparent=True, format=format)
