@@ -29,6 +29,8 @@ def cli(session: nox.Session) -> None:
     for fname in ("foo.svg", "foo.png"):
         session.run("logoize", "foo", f"--output={fname}")
         assert pathlib.Path(fname).exists()
+    for fname in ("foo.svg", "foo.png"):
+        session.run("logoize", "foo", f"--output={fname}", "--yes")
 
 
 @nox.session
