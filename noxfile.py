@@ -79,6 +79,7 @@ def release(session):
     """Tag, build and publish a new release to PyPI."""
     session.install("zest.releaser[recommended]")
     session.install("zestreleaser.towncrier")
+    session.install(".")
     session.run("fullrelease")
 
 
