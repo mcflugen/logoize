@@ -7,7 +7,7 @@ from .api import logoize as logoize_
 
 
 @click.command()
-@click.version_option(package_name="logoize")
+@click.version_option(package_name="logoizer")
 @click.option("--yes", is_flag=True, help="Do not prompt for confirmation")
 @click.option(
     "--output", "-o", type=click.Path(file_okay=True, dir_okay=False), default=None
