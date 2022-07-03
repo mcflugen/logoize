@@ -11,7 +11,7 @@ def tests(session: nox.Session) -> None:
     """Run the tests."""
     session.install("pytest")
     session.install(".[dev]")
-    session.run("pytest", "--cov=logize", "-vvv")
+    session.run("pytest", "--cov=logoizer", "-vvv")
     session.run("coverage", "report", "--ignore-errors", "--show-missing")
     # "--fail-under=100",
 
@@ -57,7 +57,7 @@ def docs(session: nox.Session) -> None:
     session.chdir("docs")
     if os.path.exists("_build"):
         shutil.rmtree("_build")
-    session.run("sphinx-apidoc", "--force", "-o", "api", "../logoize")
+    session.run("sphinx-apidoc", "--force", "-o", "api", "../logoizer")
     session.run("sphinx-build", "-b", "html", "-W", ".", "_build/html")
 
 
@@ -111,12 +111,12 @@ def publish_pypi(session):
 @nox.session(python=False)
 def clean(session):
     """Remove all .venv's, build files and caches in the directory."""
-    PROJECT = "logoize"
+    PROJECT = "logoizer"
     ROOT = pathlib.Path(__file__).parent
 
     shutil.rmtree("build", ignore_errors=True)
     shutil.rmtree("wheelhouse", ignore_errors=True)
-    shutil.rmtree(f"{PROJECT}.egg-info", ignore_errors=True)
+    shutil.rmtree(f"src/{PROJECT}.egg-info", ignore_errors=True)
     shutil.rmtree(".pytest_cache", ignore_errors=True)
     shutil.rmtree(".venv", ignore_errors=True)
     for p in chain(ROOT.rglob("*.py[co]"), ROOT.rglob("__pycache__")):

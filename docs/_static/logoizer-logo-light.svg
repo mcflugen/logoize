@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1729.946875pt" height="484.4pt" viewBox="0 0 1729.946875 484.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1946.978125pt" height="484.4pt" viewBox="0 0 1946.978125 484.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2022-07-02T11:43:17.568747</dc:date>
+    <dc:date>2022-07-03T08:55:31.673148</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -22,15 +22,15 @@
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 484.4 
-L 1729.946875 484.4 
-L 1729.946875 0 
+L 1946.978125 484.4 
+L 1946.978125 0 
 L 0 0 
 L 0 484.4 
 z
 " style="fill: none"/>
   </g>
   <g id="text_1">
-   <!-- logoize -->
+   <!-- logoizer -->
    <g transform="translate(7.2 377.2)scale(5 -5)">
     <defs>
      <path id="Quicksand-Bold-6c" d="M 1248 390 
@@ -221,6 +221,35 @@ Q 2918 147 2617 41
 Q 2317 -64 1997 -64 
 z
 " transform="scale(0.015625)"/>
+     <path id="Quicksand-Bold-72" d="M 800 0 
+Q 634 0 525 112 
+Q 416 224 416 390 
+L 416 3034 
+Q 416 3200 525 3312 
+Q 634 3424 800 3424 
+Q 966 3424 1075 3312 
+Q 1184 3200 1184 3034 
+L 1184 2432 
+L 1139 2861 
+Q 1210 3014 1322 3132 
+Q 1434 3251 1574 3331 
+Q 1715 3411 1875 3449 
+Q 2035 3488 2195 3488 
+Q 2387 3488 2518 3379 
+Q 2650 3270 2650 3123 
+Q 2650 2912 2541 2819 
+Q 2432 2726 2304 2726 
+Q 2182 2726 2083 2771 
+Q 1984 2816 1856 2816 
+Q 1741 2816 1622 2761 
+Q 1504 2707 1405 2592 
+Q 1306 2477 1245 2307 
+Q 1184 2138 1184 1907 
+L 1184 390 
+Q 1184 224 1075 112 
+Q 966 0 800 0 
+z
+" transform="scale(0.015625)"/>
     </defs>
     <use xlink:href="#Quicksand-Bold-6c"/>
     <use xlink:href="#Quicksand-Bold-6f" x="26.999985"/>
@@ -229,6 +258,7 @@ z
     <use xlink:href="#Quicksand-Bold-69" x="213.09996"/>
     <use xlink:href="#Quicksand-Bold-7a" x="236.699951"/>
     <use xlink:href="#Quicksand-Bold-65" x="285.099945"/>
+    <use xlink:href="#Quicksand-Bold-72" x="343.09993"/>
    </g>
   </g>
  </g>
