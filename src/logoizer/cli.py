@@ -21,17 +21,14 @@ def main(argv: tuple[str, ...] | None = None) -> int:
     parser.add_argument(
         "--theme", "-t", choices=("light", "dark"), default="light", help="logo theme"
     )
-    parser.add_argument("--output", "-o", type=str, default=None)
+    parser.add_argument("--output", "-o", type=argparse.FileType("w"), default="-")
     parser.add_argument("words", type=str, help="words to logoize")
 
     args = parser.parse_args(argv)
 
-    if args.output is None:
-        output = sys.stdout
-    elif os.path.exists(args.output):
-        parser.exit(status=1, message=f"{args.output}: file exists")
-
-    logoize(args.words.strip(), output, format=args.format, light=args.theme == "light")
+    logoize(
+        args.words.strip(), args.output, format=args.format, light=args.theme == "light"
+    )
 
     return 0
 

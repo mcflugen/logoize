@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import pathlib
+from typing import TextIO
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
 
-def load_logo_font(family="Quicksand"):
+def load_logo_font(family: str = "Quicksand") -> None:
     this_folder = pathlib.Path(__file__).parent
     path_to_fonts = this_folder / "fonts" / family / "static"
     for font in path_to_fonts.glob("*.ttf"):
@@ -15,7 +16,7 @@ def load_logo_font(family="Quicksand"):
     mpl.rc("font", family=family)
 
 
-def logoize(words, dest, light=True, format="svg"):
+def logoize(words: str, dest: TextIO, light: bool = True, format: str = "svg") -> None:
     color = (0.0, 0.0, 0.0) if light else (1.0, 1.0, 1.0)
     load_logo_font()
 
