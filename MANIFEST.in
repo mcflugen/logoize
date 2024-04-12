@@ -4,4 +4,3 @@ exclude noxfile.py
 exclude .pre-commit-config.yaml
 exclude news/*
 exclude src/logoizer/fonts/Quicksand/*.txt
-

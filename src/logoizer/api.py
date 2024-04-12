@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 import pathlib
 
-import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
 
