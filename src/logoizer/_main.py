@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import os
-import sys
 
 from logoizer._version import __version__
 from logoizer.api import logoize
@@ -21,7 +19,7 @@ def main(argv: tuple[str, ...] | None = None) -> int:
     parser.add_argument(
         "--theme", "-t", choices=("light", "dark"), default="light", help="logo theme"
     )
-    parser.add_argument("--output", "-o", type=argparse.FileType("w"), default="-")
+    parser.add_argument("--output", "-o", type=argparse.FileType("wb"), default="-")
     parser.add_argument("words", type=str, help="words to logoize")
 
     args = parser.parse_args(argv)

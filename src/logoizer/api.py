@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import pathlib
-from typing import TextIO
+from io import BytesIO
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ def load_logo_font(family: str = "Quicksand") -> None:
     mpl.rc("font", family=family)
 
 
-def logoize(words: str, dest: TextIO, light: bool = True, format: str = "svg") -> None:
+def logoize(words: str, dest: BytesIO, light: bool = True, format: str = "svg") -> None:
     color = (0.0, 0.0, 0.0) if light else (1.0, 1.0, 1.0)
     load_logo_font()
 
