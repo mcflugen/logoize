@@ -1,23 +1,40 @@
-import pathlib
+from __future__ import annotations
+
+import argparse
+import os
 import sys
 
-import rich_click as click
+from logoizer._version import __version__
+from logoizer.api import logoize
 
-from .api import logoize as logoize_
 
+def main(argv: tuple[str, ...] | None = None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--version", action="version", version=f"logoize {__version__}")
+    parser.add_argument(
+        "--format",
+        "-f",
+        choices=("png", "svg"),
+        default="svg",
+        help="format of the logo image",
+    )
+    parser.add_argument(
+        "--theme", "-t", choices=("light", "dark"), default="light", help="logo theme"
+    )
+    parser.add_argument("--output", "-o", type=str, default=None)
+    parser.add_argument("words", type=str, help="words to logoize")
 
-@click.command()
-@click.version_option(package_name="logoizer")
-@click.option("--yes", is_flag=True, help="Do not prompt for confirmation")
-@click.option(
-    "--output", "-o", type=click.Path(file_okay=True, dir_okay=False), default=None
-)
-@click.option("--format", "-f", type=click.Choice(["png", "svg"]), default=None)
-@click.option("--theme", "-t", type=click.Choice(["light", "dark"]), default="light")
-@click.argument("words", type=str)
-def logoize(yes, words, output, format, theme):
-    if output is None:
+    args = parser.parse_args(argv)
+
+    if args.output is None:
         output = sys.stdout
-    elif pathlib.Path(output).exists() and not yes:
-        click.confirm("file exists, overwrite?", abort=True)
-    logoize_(words.strip(), output, format=format, light=theme == "light")
+    elif os.path.exists(args.output):
+        parser.exit(status=1, message=f"{args.output}: file exists")
+
+    logoize(args.words.strip(), output, format=args.format, light=args.theme == "light")
+
+    return 0
+
+
+if __name__ == "__main__":
+    SystemExit(main())
