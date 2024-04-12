@@ -59,7 +59,7 @@ doc = [
 
 
 [project.scripts]
-logoize = "logoizer.cli:main"
+logoize = "logoizer._main:main"
 
 
 [tool.setuptools.dynamic]
