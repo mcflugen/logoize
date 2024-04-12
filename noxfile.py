@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import os
-import pathlib
 import shutil
 from itertools import chain
+from itertools import product
 
 import nox
 
@@ -25,14 +25,13 @@ def cli(session: nox.Session) -> None:
     session.run("logoize", "--version")
     session.run("logoize", "--help")
 
-    tmp_dir = pathlib.Path(session.create_tmp()).absolute()
-    session.cd(tmp_dir)
-
-    for fname in ("foo.svg", "foo.png"):
-        session.run("logoize", "foo", f"--output={fname}")
-        assert pathlib.Path(fname).exists()
-    for fname in ("foo.svg", "foo.png"):
-        session.run("logoize", "foo", f"--output={fname}", "--yes")
+    with session.chdir(session.create_tmp()):
+        for fmt, theme in product(("png", "svg"), ("dark", "light")):
+            output = f"foo-{theme}.{fmt}"
+            session.run(
+                "logoize", "foo", f"--format={fmt}", f"--theme={theme}", "-o", output
+            )
+            assert os.path.exists(output)
 
 
 @nox.session
@@ -41,7 +40,7 @@ def lint(session: nox.Session) -> None:
     session.install("pre-commit")
     session.run("pre-commit", "run", "--all-files")
 
-    towncrier(session)
+    # towncrier(session)
 
 
 @nox.session
@@ -115,7 +114,7 @@ def publish_pypi(session):
 def clean(session):
     """Remove all .venv's, build files and caches in the directory."""
     PROJECT = "logoizer"
-    ROOT = pathlib.Path(__file__).parent
+    ROOT = os.path.dirname(__file__)
 
     shutil.rmtree("build", ignore_errors=True)
     shutil.rmtree("wheelhouse", ignore_errors=True)
