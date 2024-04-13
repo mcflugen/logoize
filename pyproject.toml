@@ -23,6 +23,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
+    "importlib-resources; python_version < '3.12'",
     "matplotlib>=3.2",
 ]
 dynamic = [
