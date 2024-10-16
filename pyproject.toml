@@ -61,11 +61,12 @@ doc = [
 [project.scripts]
 logoize = "logoizer.cli:main"
 
-
 [tool.setuptools.dynamic]
-readme = {file = ["README.md", "AUTHORS.md", "CHANGES.md"]}
 version = {attr = "logoizer._version.__version__"}
 
+[tool.setuptools.dynamic.readme]
+file = ["README.md", "AUTHORS.md", "CHANGES.md"]
+content-type = "text/markdown"
 
 [tool.setuptools.packages.find]
 # namespaces = true
