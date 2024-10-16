@@ -1,1 +1,0 @@
-Removed dependency on *click* (and *rich_click*) by moving to *argparse*.
