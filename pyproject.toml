@@ -14,7 +14,7 @@ maintainers = [
   {name = "Eric Hutton"}
 ]
 keywords = ["csdms", "logo"]
-license = {file = "LICENSE.rst"}
+license = {file = "LICENSE.md"}
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "License :: OSI Approved :: MIT License",
@@ -32,8 +32,8 @@ dynamic = ["readme", "version"]
 
 [project.urls]
 repository="https://github.com/mcflugen/logoize"
-documentation = "https://github.com/mcflugen/logoizer/blob/main/README.rst"
-changelog = "https://github.com/mcflugen/logoizer/blob/main/CHANGES.rst"
+documentation = "https://github.com/mcflugen/logoizer/blob/main/README.md"
+changelog = "https://github.com/mcflugen/logoizer/blob/main/CHANGES.md"
 
 [project.optional-dependencies]
 dev = [
@@ -63,7 +63,7 @@ logoize = "logoizer.cli:main"
 
 
 [tool.setuptools.dynamic]
-readme = {file = ["README.rst", "AUTHORS.rst", "CHANGES.rst"]}
+readme = {file = ["README.md", "AUTHORS.md", "CHANGES.md"]}
 version = {attr = "logoizer._version.__version__"}
 
 
@@ -114,7 +114,7 @@ line_length = 88
 [tool.towncrier]
 directory = "news"
 package = "logoizer"
-filename = "CHANGES.rst"
+filename = "CHANGES.md"
 single_file = true
 underlines = "-`^"
 issue_format = "`#{issue} <https://github.com/mcflugen/logoizer/issues/{issue}>`_"
