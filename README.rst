@@ -1,7 +1,7 @@
 .. image:: https://raw.githubusercontent.com/mcflugen/logoizer/main/docs/_static/logoizer-logo-light.svg
   :alt: Logoizer
   :align: center
-  
+
 .. raw:: html
 
   <h2 align="center">Make CSDMS text logos</h2>
@@ -40,4 +40,3 @@ use with a dark theme,
 The output image format will be chosen based on the output file extension. If,
 however, you would like to override that behavior you can use the ``--format``
 option.
-
