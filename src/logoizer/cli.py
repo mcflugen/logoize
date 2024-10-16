@@ -2,6 +2,7 @@ import argparse
 import pathlib
 import sys
 
+from logoizer._version import __version__
 from logoizer.api import logoize as logoize_
 
 
@@ -19,6 +20,9 @@ def _logoize(words, yes, output, format, theme):
 def main():
     parser = argparse.ArgumentParser(
         description="Logoize words into a specified format and theme."
+    )
+    parser.add_argument(
+        "--version", action="version", version=f"logoizer {__version__}"
     )
     parser.add_argument("words", type=str, help="Words to convert into a logo")
     parser.add_argument(
