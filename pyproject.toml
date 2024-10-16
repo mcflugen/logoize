@@ -14,7 +14,7 @@ maintainers = [
   {name = "Eric Hutton"}
 ]
 keywords = ["csdms", "logo"]
-license = {file = "LICENSE.md"}
+license = {text = "MIT"}
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "License :: OSI Approved :: MIT License",
@@ -28,7 +28,6 @@ dependencies = [
   "matplotlib>=3.2",
 ]
 dynamic = ["readme", "version"]
-
 
 [project.urls]
 repository="https://github.com/mcflugen/logoize"
