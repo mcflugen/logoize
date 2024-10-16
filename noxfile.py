@@ -19,7 +19,8 @@ def tests(session: nox.Session) -> None:
 @nox.session
 def cli(session: nox.Session) -> None:
     """Test the command line interface."""
-    session.install(".")
+    install(session)
+
     session.run("logoize", "--version")
     session.run("logoize", "--help")
 
@@ -72,6 +73,19 @@ def build(session: nox.Session) -> None:
     session.run(
         "python", "setup.py", "bdist_wheel", "sdist", "--dist-dir", "./wheelhouse"
     )
+
+
+@nox.session
+def install(session: nox.Session) -> None:
+    first_arg = session.posargs[0] if session.posargs else None
+
+    if first_arg:
+        if os.path.isfile(first_arg):
+            session.install(first_arg)
+        else:
+            session.error("path must be a source distribution")
+    else:
+        session.install(".")
 
 
 @nox.session
