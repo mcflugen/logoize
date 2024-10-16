@@ -16,8 +16,8 @@ def tests(session: nox.Session) -> None:
     # "--fail-under=100",
 
 
-@nox.session
-def cli(session: nox.Session) -> None:
+@nox.session(name="test-cli")
+def test_cli(session: nox.Session) -> None:
     """Test the command line interface."""
     install(session)
 
